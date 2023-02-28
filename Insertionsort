@@ -1,0 +1,33 @@
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+    key = arr[i]
+    j = i - 1
+    while j >= 0 and key < arr[j]:
+        arr[j + 1] = arr[j]
+        j -= 1
+    arr[j + 1] = key
+import matplotlib.pyplot as plt
+import time
+ot=[]
+T=int(input("Enter no of Excution"))
+temp=0
+x=[]
+for j in range(0,T):
+    start=time.time()
+    n=int(input("Enter n"))
+    x.append(n)
+    my_list=[]
+    for i in range(0,n):
+        ele=int(input("Enter Element"))
+        my_list.append(ele)
+    my_result = insertion_sort(my_list)
+    print("Sorted array is:", my_list)
+    end=time.time()
+    time_comp=end-start
+    temp=temp+1
+    ot.append(time_comp)
+print("Execution Time",ot)
+X=x
+Y=ot
+plt.plot(X,Y)
+plt.show()
